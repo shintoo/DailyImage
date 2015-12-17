@@ -62,7 +62,7 @@ def login(email, password):
     '''
 
     # Contains the SMTP server and the appropriate port depending on the email
-    f = open('.dailycat_servers')
+    f = open('.dailyimage_servers')
 
     # Find the appropriate server and port from the user's email
     for line in f:
