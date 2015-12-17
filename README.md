@@ -11,9 +11,9 @@ Just started learning python so I thought I'd make something that uses the neat 
 * Violates Google's terms of service
 
 ###The very ugly usage
-'''
+```
 dailyimage.py email password targetemail hh:mm query
-'''
+```
 
 This will email targetemail an image from a Google Image search of query from your email.
 
