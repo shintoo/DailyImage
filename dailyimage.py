@@ -7,6 +7,9 @@ import time     # Wait until ^
 import client   # Login and send emails
 import getimage # Search for and download images
 
+def print_usage():
+    print('usage: dailyimage.py sender@provider.com senderpassword target@provider.com time query')
+    print('time is in the format HH:MM, such as 10:21 or 15:45')
 
 def main(argv):
     # see print_usage()
