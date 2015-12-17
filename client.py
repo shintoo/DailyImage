@@ -74,3 +74,21 @@ def login(email, password):
     client.smtpObj.login(email, password)
 
     return client
+
+def main(argv):
+    if len(argv) != 3:
+        print('usage: login.py email password')
+        sys.exit()
+
+    try:
+        client = login(argv[1], argv[2])
+    except smtplib.SMTPAuthenticationError as e:
+        print('Error: Could not log in')
+        sys.exit()
+
+    print('Login successful')
+    client.smtpObj.quit()
+
+if __name__ == '__main__':
+    import sys
+    main(sys.argv)
