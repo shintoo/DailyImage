@@ -6,8 +6,8 @@ Just started learning python so I thought I'd make something that uses the neat 
 
 ###What this program does
 * Searches Google Images with your query
-* Downloads an image
-* Emails it to the target email at the time specified daily
+* Emails an image to the target email at the time specified daily
+* Gets a new image every day
 * Violates Google's terms of service
 
 ###The very ugly usage
