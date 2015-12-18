@@ -1,25 +1,64 @@
 #DailyImage
-#### Email a new image every day.
-WIP
+### Subscribe with a query to recieve a new image daily.
 
-Just started learning python so I thought I'd make something that uses the neat web stuff.
+## How do I use DailyImage?
+First, you have to enter your information into the JSON file.
 
-###What this program does
-* Searches Google Images with your query
-* Emails an image to the target email at the time specified daily
-* Gets a new image every day
-* Violates Google's terms of service
-
-###The very ugly usage
 ```
-dailyimage.py email password targetemail hh:mm query
+{
+    "sender": {
+        "email"   : "your.email@your.provider.com",
+        "password": "your-password"
+    },
+    
+    "clients": [
+        {
+            "email": "client1@emailprovider.com",
+            "query": "Client 1 Image Query",
+            "time" : "12:00"
+        },
+        {
+            "email": "client2@emailprovider.com",
+            "query": "Client 2 Image Query",
+            "time" : "15:30"
+        }
+    ]
+}
 ```
 
-This will email targetemail an image from a Google Image search of query from your email.
+### Sender
 
-Yes, your email password is needed to log in, in order to send emails.
+This field holds your email information, and is used to send the emails.
+"email" is your email, "password" is your email's password.
 
-No, this program does not send your email password to me. Go ahead, look.
+If this sounds sketchy, you're welcome to make an additional email just for use with this program.
 
-###What's to come
-Working on getting it into a config file instead of all cl args. That way, you could customize the subject line and body of the email. Don't get your hopes up, though.
+### Clients
+
+"clients" is a list of clients that will be receiving service from DailyImage. The "email" field is the client's email. This is where the image will be sent to. The "query" field is the query for the image. DailyImage will grab a new image each day from Google Images using this query. "time" is the time that the image will be sent each day.
+
+### Usage
+
+```
+# Simply run dailyimage.py to use 'config.json'
+$ ./dailyimage.py
+# Or, use an alternative JSON file:
+$ ./dailyimage.py alternative.json
+```
+
+### Installation
+
+```
+git clone https://github.com/shintoo/DailyImage.git
+# optional:
+cd DailyImage
+chmod +x dailyimage.py
+```
+
+### Dependencies
+
+DailyImage is a Python 2 program. It requires the following Python modules:
+
+* BeautifulSoup (bs4)
+* requests
+* json
