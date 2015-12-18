@@ -40,12 +40,11 @@ def main(argv):
             break
         # Check every 15 seconds
         time.sleep(15)
- 
-    print('starting')
+
 
     # Send the first image, wait one day, send next image, ad infinitum
     for image in getimage.get_image(user.query):
-       user.send(image, argv[3]) # Get a new image, send to the client
+       user.send(image, argv[3]) # Send the image to the target
        time.sleep(60 * 60 * 24) # Wait until time
 
 if __name__ == '__main__':

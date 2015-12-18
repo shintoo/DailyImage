@@ -7,6 +7,7 @@ import smtplib           # for email ...
 from email.MIMEMultipart import MIMEMultipart
 from email.MIMEBase      import MIMEBase
 from email.mime.image    import MIMEImage
+from email.MIMEText      import MIMEText
 from email               import Encoders
 
 class Client:
@@ -29,11 +30,14 @@ class Client:
     def send(self, image, target_email):
         '''Send an image to the email'''
 
+        body = 'Here is your daily ' + self.query[:-1] + '!\n\nRegards, DailyImage'
+
         # Create the email message
         msg = MIMEMultipart()
         msg['Subject'] = 'Your Daily ' + self.query
         msg['From'] = self.email
         msg['To'] = target_email
+        msg.attach(MIMEText(body.encode('utf-8')))
 
         # attach the image
         attachment = MIMEImage(image, 'daily-' + self.query)
@@ -83,7 +87,8 @@ def main(argv):
     try:
         client = login(argv[1], argv[2])
     except smtplib.SMTPAuthenticationError as e:
-        print('Error: Could not log in')
+        print('Error: Could not log in. ')
+        print((e.__str__().split('\'')[1]))
         sys.exit()
 
     print('Login successful')
