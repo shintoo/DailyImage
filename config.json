@@ -1,0 +1,19 @@
+{
+    "sender": {
+        "email"   : "your.email@your.provider.com",
+        "password": "your-password"
+    },
+    
+    "clients": [
+        {
+            "email": "client1@emailprovider.com",
+            "query": "Client 1 Image Query",
+            "time" : "12:00"
+        },
+        {
+            "email": "client2@emailprovider.com",
+            "query": "Client 2 Image Query",
+            "time" : "15:30"
+        }
+    ]
+}
